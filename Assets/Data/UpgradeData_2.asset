@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f0c36ccccb05c4c99fd3396d34b3fa, type: 3}
+  m_Name: UpgradeData_2
+  m_EditorClassIdentifier: Assembly-CSharp::BIMM.Data.UpgradeData
+  DisplayName: Faster! Faster!
+  Description: +2 Projectiles
+  Icon: {fileID: 21300000, guid: 5213deda77eae2d4c9f6a288142116c0, type: 3}
+  HealthBonus: 0
+  SpeedBonus: 0
+  DamageBonus: 0
+  FireRateBonus: 0
+  ProjectileCountBonus: 2
