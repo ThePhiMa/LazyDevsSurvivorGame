@@ -14,7 +14,7 @@ namespace BIMM.Core
 
         private void Start()
         {
-            Camera cam = FindFirstObjectByType<Camera>();
+            cam = Camera.main;
             StartCoroutine(SpawnLoop());
         }
 
@@ -29,7 +29,10 @@ namespace BIMM.Core
 
         private void SpawnEnemy()
         {
-            if (cam == null) return;
+            if (cam == null)
+            {
+                return;
+            }
 
             Vector2 spawnPosition = GetSpawnPosition(cam);
             Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
