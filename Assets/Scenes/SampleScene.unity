@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e49501d167f60479f7f7c7f9246364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BIMM.Core.EnemySpawner
-  _enemyPrefab: {fileID: 1190718849342244564, guid: 1d7af1b758e099d41a8fd6183e7afc6b, type: 3}
+  _enemyPrefab: {fileID: 5765709140191062437, guid: 1d7af1b758e099d41a8fd6183e7afc6b, type: 3}
   _baseSpawnInterval: 2
   _minimumSpawnInterval: 0.3
   _rampDuration: 300

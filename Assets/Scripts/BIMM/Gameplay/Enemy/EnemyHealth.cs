@@ -1,5 +1,6 @@
 using UnityEngine;
 using BIMM.Data;
+using BIMM.Core;
 
 namespace BIMM.Gameplay.Enemy
 {
@@ -32,7 +33,7 @@ namespace BIMM.Gameplay.Enemy
                 Instantiate(_xpGemPrefab, transform.position, Quaternion.identity);
             }
 
-            Destroy(gameObject);
+            GetComponent<PooledEnemy>().Despawn();
         }
     }
 }
