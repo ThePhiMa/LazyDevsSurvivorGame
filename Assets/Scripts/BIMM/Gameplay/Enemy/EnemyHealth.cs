@@ -1,8 +1,11 @@
 using UnityEngine;
 using BIMM.Data;
+using BIMM.Core;
 
 namespace BIMM.Gameplay.Enemy
 {
+
+
     public class EnemyHealth : MonoBehaviour, IDamageable
     {
         [SerializeField] private EnemyData _data;
@@ -32,7 +35,8 @@ namespace BIMM.Gameplay.Enemy
                 Instantiate(_xpGemPrefab, transform.position, Quaternion.identity);
             }
 
-            Destroy(gameObject);
+            EnemySpawner.Instance.Pool.Release(this.gameObject);
+
         }
     }
 }

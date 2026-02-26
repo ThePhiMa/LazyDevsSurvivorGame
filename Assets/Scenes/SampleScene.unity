@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BIMM.Core.EnemySpawner
   _enemyPrefab: {fileID: 1190718849342244564, guid: 1d7af1b758e099d41a8fd6183e7afc6b, type: 3}
-  _baseSpawnInterval: 2
+  _baseSpawnInterval: 0.2
   _minimumSpawnInterval: 0.3
   _rampDuration: 300
 --- !u!4 &485754955
@@ -2201,7 +2201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1284919141
 RectTransform:
   m_ObjectHideFlags: 0

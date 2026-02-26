@@ -11,7 +11,7 @@ namespace BIMM.Gameplay.Enemy
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
 
-            if (damageable != null)
+            if (damageable != null && damageable is not EnemyHealth)
             {
                 damageable.TakeDamage(_data.ContactDamage);
             }
