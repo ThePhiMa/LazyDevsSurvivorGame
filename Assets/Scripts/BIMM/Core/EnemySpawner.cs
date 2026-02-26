@@ -10,8 +10,11 @@ namespace BIMM.Core
         [SerializeField] private float _minimumSpawnInterval = 0.3f;
         [SerializeField] private float _rampDuration = 300f;
 
+        Camera cam;
+
         private void Start()
         {
+            Camera cam = FindFirstObjectByType<Camera>();
             StartCoroutine(SpawnLoop());
         }
 
@@ -26,12 +29,7 @@ namespace BIMM.Core
 
         private void SpawnEnemy()
         {
-            Camera cam = FindObjectOfType<Camera>();
-
-            if (cam == null)
-            {
-                return;
-            }
+            if (cam == null) return;
 
             Vector2 spawnPosition = GetSpawnPosition(cam);
             Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
