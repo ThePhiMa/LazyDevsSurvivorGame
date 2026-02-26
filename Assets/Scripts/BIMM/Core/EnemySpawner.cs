@@ -1,14 +1,39 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace BIMM.Core
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject _enemyPrefab;
+        [Header("Spawn")]
+        [SerializeField] private PooledEnemy _enemyPrefab;
         [SerializeField] private float _baseSpawnInterval = 2f;
         [SerializeField] private float _minimumSpawnInterval = 0.3f;
         [SerializeField] private float _rampDuration = 300f;
+        [SerializeField] private Camera cam;
+
+        [Header("Pool")]
+        [SerializeField] private int _defaultCapacity = 30;
+        [SerializeField] private int _maxSize = 200;
+
+        private ObjectPool<PooledEnemy> _pool;
+
+        private void Awake()
+        {
+            // If not assigned, grab main camera
+            if (cam == null) cam = Camera.main;
+
+            _pool = new ObjectPool<PooledEnemy>(
+                createFunc: CreateEnemy,
+                actionOnGet: OnGetEnemy,
+                actionOnRelease: OnReleaseEnemy,
+                actionOnDestroy: OnDestroyEnemy,
+                collectionCheck: false,
+                defaultCapacity: _defaultCapacity,
+                maxSize: _maxSize
+            );
+        }
 
         private void Start()
         {
@@ -26,15 +51,41 @@ namespace BIMM.Core
 
         private void SpawnEnemy()
         {
-            Camera cam = FindObjectOfType<Camera>();
-
-            if (cam == null)
-            {
-                return;
-            }
+            if (cam == null) return;
 
             Vector2 spawnPosition = GetSpawnPosition(cam);
-            Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
+
+            var enemy = _pool.Get();
+            enemy.transform.position = spawnPosition;
+            enemy.transform.rotation = Quaternion.identity;
+        }
+
+        // Pool callbacks
+        private PooledEnemy CreateEnemy()
+        {
+            var enemy = Instantiate(_enemyPrefab);
+            enemy.Init(ReleaseEnemy); // give it the release callback
+            return enemy;
+        }
+
+        private void OnGetEnemy(PooledEnemy enemy)
+        {
+            enemy.gameObject.SetActive(true);
+        }
+
+        private void OnReleaseEnemy(PooledEnemy enemy)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+
+        private void OnDestroyEnemy(PooledEnemy enemy)
+        {
+            Destroy(enemy.gameObject);
+        }
+
+        private void ReleaseEnemy(PooledEnemy enemy)
+        {
+            _pool.Release(enemy);
         }
 
         private Vector2 GetSpawnPosition(Camera cam)

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3123232423479667591}
   - component: {fileID: 2337784240049557633}
   - component: {fileID: 4715440509072926546}
+  - component: {fileID: 5765709140191062437}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -199,3 +200,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BIMM.Gameplay.Enemy.EnemyContact
   _data: {fileID: 11400000, guid: 3260a86e7eed16e419207bdad149acb5, type: 2}
+--- !u!114 &5765709140191062437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190718849342244564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec47f257efd1f0a48acbe9374eb55955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BIMM.Core.PooledEnemy

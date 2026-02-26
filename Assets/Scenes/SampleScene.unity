@@ -1174,6 +1174,9 @@ MonoBehaviour:
   _baseSpawnInterval: 2
   _minimumSpawnInterval: 0.3
   _rampDuration: 300
+  cam: {fileID: 330585545}
+  _defaultCapacity: 30
+  _maxSize: 200
 --- !u!4 &485754955
 Transform:
   m_ObjectHideFlags: 0
@@ -2201,7 +2204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1284919141
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2749,7 +2752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 7.3220015, y: -16.1}
+  m_AnchoredPosition: {x: 7.3220015, y: -16.099976}
   m_SizeDelta: {x: 1126.6135, y: 48.128906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1458399338
